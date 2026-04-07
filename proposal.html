@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Request a Proposal – Embassy Elite Banquets</title>
+  <meta name="description" content="Request a proposal for your event at Embassy Elite Banquets in Naperville, IL." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold: #B8962E;
+      --gold-light: #D4AF5A;
+      --teal: #1A7A6E;
+      --teal-dark: #145F56;
+      --cream: #F5F0E8;
+      --dark: #1C1C1C;
+      --mid: #4A4A4A;
+      --error: #C0392B;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--dark);
+      background: var(--cream);
+      min-height: 100vh;
+    }
+
+    /* HEADER */
+    header {
+      background: #fff;
+      border-bottom: 1px solid #e8e2d8;
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      color: var(--dark);
+      text-decoration: none;
+    }
+
+    .logo-text span { color: var(--gold); }
+
+    .header-sub {
+      font-size: 12px;
+      color: var(--mid);
+    }
+
+    .header-contact {
+      text-align: right;
+      font-size: 13px;
+      color: var(--mid);
+    }
+
+    .header-contact a {
+      color: var(--teal);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: var(--mid);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover { color: var(--teal); }
+
+    /* MAIN LAYOUT */
+    main {
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 60px;
+      align-items: start;
+    }
+
+    /* SIDEBAR */
+    .sidebar {
+      position: sticky;
+      top: 40px;
+    }
+
+    .sidebar-label {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .sidebar h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 42px;
+      font-weight: 300;
+      line-height: 1.2;
+      color: var(--dark);
+      margin-bottom: 24px;
+    }
+
+    .sidebar h1 em {
+      font-style: italic;
+      color: var(--teal);
+    }
+
+    .sidebar p {
+      font-size: 14px;
+      color: var(--mid);
+      line-height: 1.8;
+      margin-bottom: 32px;
+    }
+
+    .sidebar-features {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .sidebar-feature {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 13px;
+      color: var(--mid);
+    }
+
+    .sf-icon {
+      width: 36px; height: 36px;
+      background: var(--teal);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff;
+      font-size: 15px;
+      flex-shrink: 0;
+    }
+
+    .sidebar-divider {
+      height: 1px;
+      background: #ddd;
+      margin: 32px 0;
+    }
+
+    .sidebar-contact h3 {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 10px;
+    }
+
+    .sidebar-contact p {
+      font-size: 13px;
+      color: var(--mid);
+      margin-bottom: 4px;
+    }
+
+    .sidebar-contact a {
+      color: var(--teal);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    /* FORM CARD */
+    .form-card {
+      background: #fff;
+      border-radius: 4px;
+      padding: 48px 40px;
+      box-shadow: 0 4px 40px rgba(0,0,0,0.08);
+      border-top: 4px solid var(--gold);
+    }
+
+    .form-title {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .form-card h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 300;
+      color: var(--dark);
+      margin-bottom: 32px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    label {
+      display: block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 8px;
+    }
+
+    label .req { color: var(--error); margin-left: 2px; }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid #ddd;
+      border-radius: 2px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      color: var(--dark);
+      background: #fff;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px rgba(26,122,110,0.08);
+    }
+
+    input.error, select.error, textarea.error {
+      border-color: var(--error);
+    }
+
+    .error-msg {
+      font-size: 11px;
+      color: var(--error);
+      margin-top: 4px;
+      display: none;
+    }
+
+    .error-msg.visible { display: block; }
+
+    select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%234A4A4A' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 36px;
+    }
+
+    textarea { resize: vertical; min-height: 120px; }
+
+    .form-section-label {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--teal);
+      font-weight: 600;
+      margin: 28px 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--cream);
+    }
+
+    .submit-btn {
+      width: 100%;
+      background: var(--teal);
+      color: #fff;
+      border: none;
+      padding: 16px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      cursor: pointer;
+      margin-top: 28px;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .submit-btn:hover { background: var(--teal-dark); transform: translateY(-1px); }
+    .submit-btn:active { transform: translateY(0); }
+
+    .form-note {
+      font-size: 11px;
+      color: #aaa;
+      text-align: center;
+      margin-top: 14px;
+      line-height: 1.6;
+    }
+
+    /* SUCCESS STATE */
+    .success-state {
+      display: none;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .success-state.visible { display: block; }
+
+    .success-icon {
+      width: 72px; height: 72px;
+      background: var(--teal);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 24px;
+      font-size: 32px;
+      color: #fff;
+    }
+
+    .success-state h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      font-weight: 300;
+      color: var(--dark);
+      margin-bottom: 16px;
+    }
+
+    .success-state p { font-size: 14px; color: var(--mid); line-height: 1.8; }
+
+    /* RESPONSIVE */
+    @media (max-width: 860px) {
+      main { grid-template-columns: 1fr; gap: 40px; }
+      .sidebar { position: static; }
+      header { padding: 16px 20px; flex-wrap: wrap; gap: 12px; }
+      .form-card { padding: 32px 24px; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div>
+    <a href="index.html" class="logo-text">E<span>LITE</span> BANQUETS</a>
+    <div class="header-sub">Naperville, IL</div>
+  </div>
+  <a href="index.html" class="back-link">← Back to Home</a>
+  <div class="header-contact">
+    <a href="tel:6307995900">(630) 799-5900</a><br>
+    1823 Abriter Ct, Naperville IL 60563
+  </div>
+</header>
+
+<main>
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <p class="sidebar-label">Get Started</p>
+    <h1>Let's Plan Your <em>Perfect</em> Event</h1>
+    <p>Fill out this form and one of our event specialists will reach out within 24 hours with a customized proposal for your occasion.</p>
+
+    <div class="sidebar-features">
+      <div class="sidebar-feature">
+        <div class="sf-icon">✦</div>
+        <span>Hosts up to <strong>1,000 guests</strong> across multiple event spaces</span>
+      </div>
+      <div class="sidebar-feature">
+        <div class="sf-icon">🎉</div>
+        <span>Weddings, corporate events, quinceañeras, mitzvahs & more</span>
+      </div>
+      <div class="sidebar-feature">
+        <div class="sf-icon">🍽</div>
+        <span>All-inclusive packages with catering, decor & AV available</span>
+      </div>
+      <div class="sidebar-feature">
+        <div class="sf-icon">🅿</div>
+        <span>Ample parking & free high-speed WiFi throughout</span>
+      </div>
+    </div>
+
+    <div class="sidebar-divider"></div>
+
+    <div class="sidebar-contact">
+      <h3>Prefer to call?</h3>
+      <p><a href="tel:6307995900">(630) 799-5900</a></p>
+      <p>1823 Abriter Ct, Naperville IL 60563</p>
+    </div>
+  </div>
+
+  <!-- FORM -->
+  <div class="form-card">
+    <p class="form-title">Request for Proposal</p>
+    <h2>Check Availability</h2>
+
+    <form id="proposalForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+
+      <p class="form-section-label">Event Details</p>
+
+      <div class="form-group">
+        <label for="eventType">Event Type <span class="req">*</span></label>
+        <select id="eventType" name="eventType" required>
+          <option value="" disabled selected>Select Event Type</option>
+          <option>Wedding</option>
+          <option>Corporate Event / Conference</option>
+          <option>Quinceañera</option>
+          <option>Bar / Bat Mitzvah</option>
+          <option>Baby Shower</option>
+          <option>Retirement Celebration</option>
+          <option>Sweet 16 / Cotillion</option>
+          <option>Birthday / Anniversary</option>
+          <option>Memorial</option>
+          <option>Other</option>
+        </select>
+        <div class="error-msg" id="eventTypeErr">Please select an event type.</div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="preferredDate">Preferred Date <span class="req">*</span></label>
+          <input type="date" id="preferredDate" name="preferredDate" required />
+          <div class="error-msg" id="preferredDateErr">Please select a date.</div>
+        </div>
+        <div class="form-group">
+          <label for="dateFlexible">Is Your Date Flexible? <span class="req">*</span></label>
+          <select id="dateFlexible" name="dateFlexible" required>
+            <option value="" disabled selected>Select...</option>
+            <option>Yes, flexible by a few days</option>
+            <option>Yes, flexible by a few weeks</option>
+            <option>No, date is fixed</option>
+          </select>
+          <div class="error-msg" id="dateFlexibleErr">Please select an option.</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="guestCount">Estimated Number of Guests <span class="req">*</span></label>
+        <select id="guestCount" name="guestCount" required>
+          <option value="" disabled selected>Select guest range</option>
+          <option>Under 50</option>
+          <option>50–100</option>
+          <option>100–200</option>
+          <option>200–400</option>
+          <option>400–600</option>
+          <option>600–800</option>
+          <option>800–1000</option>
+          <option>1000+</option>
+        </select>
+        <div class="error-msg" id="guestCountErr">Please estimate your guest count.</div>
+      </div>
+
+      <p class="form-section-label">Your Information</p>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="firstName">First Name <span class="req">*</span></label>
+          <input type="text" id="firstName" name="firstName" placeholder="Jane" required />
+          <div class="error-msg" id="firstNameErr">Please enter your first name.</div>
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name <span class="req">*</span></label>
+          <input type="text" id="lastName" name="lastName" placeholder="Smith" required />
+          <div class="error-msg" id="lastNameErr">Please enter your last name.</div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="email">Email <span class="req">*</span></label>
+          <input type="email" id="email" name="email" placeholder="jane@example.com" required />
+          <div class="error-msg" id="emailErr">Please enter a valid email.</div>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone <span class="req">*</span></label>
+          <input type="tel" id="phone" name="phone" placeholder="(630) 555-0100" required />
+          <div class="error-msg" id="phoneErr">Please enter your phone number.</div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="city">City <span class="req">*</span></label>
+          <input type="text" id="city" name="city" placeholder="Naperville" required />
+          <div class="error-msg" id="cityErr">Please enter your city.</div>
+        </div>
+        <div class="form-group">
+          <label for="zipCode">Zip Code <span class="req">*</span></label>
+          <input type="text" id="zipCode" name="zipCode" placeholder="60563" required />
+          <div class="error-msg" id="zipCodeErr">Please enter your zip code.</div>
+        </div>
+      </div>
+
+      <p class="form-section-label">Additional Information</p>
+
+      <div class="form-group">
+        <label for="comments">Additional Comments <span class="req">*</span></label>
+        <textarea id="comments" name="comments" placeholder="Tell us about your vision, any special requirements, or questions you have..." required></textarea>
+        <div class="error-msg" id="commentsErr">Please add any comments or questions.</div>
+      </div>
+
+      <div class="form-group">
+        <label for="hearAbout">How Did You Hear About Elite?</label>
+        <select id="hearAbout" name="hearAbout">
+          <option value="" selected>Select...</option>
+          <option>Google Search</option>
+          <option>Social Media</option>
+          <option>Friend / Family Referral</option>
+          <option>Attended an Event Here</option>
+          <option>Advertisement</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <button type="submit" class="submit-btn">Check Availability</button>
+      <p class="form-note">We'll respond within 24 hours. For immediate assistance, call <a href="tel:6307995900" style="color:var(--teal)">(630) 799-5900</a>.</p>
+    </form>
+
+    <!-- SUCCESS STATE -->
+    <div class="success-state" id="successState">
+      <div class="success-icon">✓</div>
+      <h3>Thank You!</h3>
+      <p>Your proposal request has been received. One of our event specialists will reach out within 24 hours to discuss your event.</p>
+      <p style="margin-top:12px;">For immediate assistance, call <a href="tel:6307995900" style="color:var(--teal);font-weight:600">(630) 799-5900</a>.</p>
+    </div>
+  </div>
+</main>
+
+<script>
+  const form = document.getElementById('proposalForm');
+
+  // Required fields validation config
+  const fields = [
+    { id: 'eventType',     errId: 'eventTypeErr' },
+    { id: 'preferredDate', errId: 'preferredDateErr' },
+    { id: 'dateFlexible',  errId: 'dateFlexibleErr' },
+    { id: 'guestCount',    errId: 'guestCountErr' },
+    { id: 'firstName',     errId: 'firstNameErr' },
+    { id: 'lastName',      errId: 'lastNameErr' },
+    { id: 'email',         errId: 'emailErr',    type: 'email' },
+    { id: 'phone',         errId: 'phoneErr' },
+    { id: 'city',          errId: 'cityErr' },
+    { id: 'zipCode',       errId: 'zipCodeErr' },
+    { id: 'comments',      errId: 'commentsErr' },
+  ];
+
+  function validateField(f) {
+    const el = document.getElementById(f.id);
+    const errEl = document.getElementById(f.errId);
+    let valid = el.value.trim() !== '';
+    if (f.type === 'email') valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value.trim());
+    el.classList.toggle('error', !valid);
+    errEl.classList.toggle('visible', !valid);
+    return valid;
+  }
+
+  // Live validation on blur
+  fields.forEach(f => {
+    const el = document.getElementById(f.id);
+    if (el) el.addEventListener('blur', () => validateField(f));
+  });
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    let allValid = true;
+    fields.forEach(f => { if (!validateField(f)) allValid = false; });
+    if (!allValid) return;
+
+    const btn = form.querySelector('.submit-btn');
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (res.ok) {
+        form.style.display = 'none';
+        document.getElementById('successState').classList.add('visible');
+      } else {
+        alert('There was a problem submitting your form. Please call us at (630) 799-5900.');
+        btn.textContent = 'Check Availability';
+        btn.disabled = false;
+      }
+    } catch {
+      alert('Network error. Please call us at (630) 799-5900.');
+      btn.textContent = 'Check Availability';
+      btn.disabled = false;
+    }
+  });
+</script>
+</body>
+</html>

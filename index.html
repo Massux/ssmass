@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Embassy Elite Banquets – Naperville, IL</title>
+  <meta name="description" content="Embassy Elite Banquets in Naperville, IL. Premier venue for weddings, corporate events, and social celebrations. Hosts up to 1000 guests." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold: #B8962E;
+      --gold-light: #D4AF5A;
+      --teal: #1A7A6E;
+      --teal-dark: #145F56;
+      --cream: #F5F0E8;
+      --dark: #1C1C1C;
+      --mid: #4A4A4A;
+      --light-gray: #F8F6F2;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--dark);
+      background: #fff;
+      overflow-x: hidden;
+    }
+
+    /* ── NAVBAR ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #fff;
+      border-bottom: 1px solid #e8e2d8;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      height: 80px;
+    }
+
+    .nav-logo img {
+      height: 60px;
+      width: auto;
+    }
+
+    .nav-contact {
+      font-size: 12px;
+      color: var(--mid);
+      text-align: left;
+      line-height: 1.6;
+    }
+
+    .nav-contact a {
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--dark);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--teal); }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .btn-proposal {
+      background: var(--teal);
+      color: #fff;
+      padding: 10px 22px;
+      border-radius: 3px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+
+    .btn-proposal:hover { background: var(--teal-dark); }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--dark);
+      transition: 0.3s;
+    }
+
+    /* Mobile nav */
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: #fff;
+      z-index: 200;
+      padding: 80px 40px 40px;
+      gap: 24px;
+    }
+
+    .mobile-nav.open { display: flex; }
+
+    .mobile-nav a {
+      text-decoration: none;
+      color: var(--dark);
+      font-size: 20px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 16px;
+      transition: color 0.2s;
+    }
+
+    .mobile-nav a:hover { color: var(--teal); }
+
+    .mobile-close {
+      position: absolute;
+      top: 24px; right: 24px;
+      background: none;
+      border: none;
+      font-size: 28px;
+      cursor: pointer;
+      color: var(--dark);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      height: 88vh;
+      min-height: 520px;
+      overflow: hidden;
+    }
+
+    .hero-slides { width: 100%; height: 100%; position: relative; }
+
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+
+    .hero-slide.active { opacity: 1; }
+
+    .hero-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.55) 100%);
+    }
+
+    .hero-content {
+      position: absolute;
+      bottom: 80px;
+      left: 60px;
+      right: 60px;
+      color: #fff;
+      max-width: 640px;
+      animation: fadeUp 1s ease forwards;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 14px;
+      font-weight: 500;
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(38px, 5vw, 64px);
+      font-weight: 300;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+
+    .hero-title em { font-style: italic; color: var(--gold-light); }
+
+    .hero-sub {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.8;
+      margin-bottom: 32px;
+      max-width: 480px;
+      opacity: 0.92;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      background: var(--teal);
+      color: #fff;
+      padding: 14px 32px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .hero-cta:hover { background: var(--teal-dark); transform: translateY(-2px); }
+
+    .hero-arrows {
+      position: absolute;
+      bottom: 50%;
+      transform: translateY(50%);
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 16px;
+      pointer-events: none;
+    }
+
+    .hero-arrow {
+      pointer-events: all;
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.4);
+      color: #fff;
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      font-size: 18px;
+      transition: background 0.2s;
+      backdrop-filter: blur(4px);
+    }
+
+    .hero-arrow:hover { background: rgba(255,255,255,0.3); }
+
+    /* ── EVENT TABS ── */
+    .event-tabs {
+      background: #fff;
+      border-bottom: 2px solid var(--cream);
+      display: flex;
+      overflow-x: auto;
+      gap: 0;
+    }
+
+    .event-tab {
+      flex: 1;
+      min-width: 140px;
+      padding: 18px 24px;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--mid);
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      transition: all 0.2s;
+      white-space: nowrap;
+      text-decoration: none;
+    }
+
+    .event-tab:hover, .event-tab.active {
+      color: var(--teal);
+      border-bottom-color: var(--teal);
+    }
+
+    /* ── INTRO SECTION ── */
+    .intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      min-height: 520px;
+    }
+
+    .intro-text {
+      padding: 70px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    .intro-text h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(32px, 3vw, 46px);
+      font-weight: 300;
+      line-height: 1.25;
+      color: var(--dark);
+      margin-bottom: 24px;
+    }
+
+    .intro-text p {
+      font-size: 14px;
+      line-height: 1.9;
+      color: var(--mid);
+      margin-bottom: 16px;
+    }
+
+    .feature-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .pill {
+      background: var(--cream);
+      color: var(--teal);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 8px 16px;
+      border-radius: 2px;
+    }
+
+    .intro-image {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .intro-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .intro-image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(26,122,110,0.08) 0%, transparent 60%);
+    }
+
+    /* ── SOCIAL EVENTS SIDEBAR ── */
+    .events-section {
+      background: var(--light-gray);
+      padding: 80px 60px;
+    }
+
+    .events-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .events-list h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 36px;
+      font-weight: 300;
+      margin-bottom: 32px;
+      color: var(--dark);
+    }
+
+    .event-items {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .event-item {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal);
+      padding: 16px 0;
+      border-bottom: 1px solid #ddd;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .event-item::before {
+      content: '';
+      width: 4px; height: 4px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .event-item:hover { color: var(--teal-dark); }
+
+    .features-box {
+      background: #fff;
+      padding: 48px;
+      border-left: 4px solid var(--gold);
+    }
+
+    .features-box h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 300;
+      margin-bottom: 28px;
+      color: var(--dark);
+    }
+
+    .feature-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 13px;
+      color: var(--mid);
+      line-height: 1.5;
+    }
+
+    .feature-icon {
+      width: 32px; height: 32px;
+      background: var(--teal);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      color: #fff;
+      font-size: 14px;
+    }
+
+    /* ── CLIENTS ── */
+    .clients-section {
+      padding: 70px 60px;
+      background: #fff;
+    }
+
+    .clients-section h2 {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 40px;
+    }
+
+    .clients-logos {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 40px 60px;
+    }
+
+    .client-logo {
+      height: 36px;
+      width: auto;
+      opacity: 0.6;
+      filter: grayscale(100%);
+      transition: opacity 0.2s, filter 0.2s;
+    }
+
+    .client-logo:hover { opacity: 1; filter: none; }
+
+    .client-name {
+      font-size: 18px;
+      font-weight: 700;
+      color: #999;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+      cursor: default;
+    }
+
+    .client-name:hover { color: var(--teal); }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials {
+      background: var(--cream);
+      padding: 80px 60px;
+    }
+
+    .testimonials h2 {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 48px;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
+    }
+
+    .testimonial-card {
+      background: #fff;
+      padding: 32px;
+      border-radius: 2px;
+      position: relative;
+    }
+
+    .testimonial-card::before {
+      content: '"';
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 80px;
+      color: var(--cream);
+      position: absolute;
+      top: 8px; left: 20px;
+      line-height: 1;
+    }
+
+    .testimonial-text {
+      font-size: 13px;
+      line-height: 1.8;
+      color: var(--mid);
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .author-avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--teal);
+      display: flex; align-items: center; justify-content: center;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+
+    .author-name {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--dark);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── CTA BANNER ── */
+    .cta-banner {
+      background: var(--teal);
+      padding: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    .cta-banner h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(28px, 3vw, 42px);
+      font-weight: 300;
+      color: #fff;
+      line-height: 1.3;
+    }
+
+    .cta-banner p {
+      color: rgba(255,255,255,0.8);
+      font-size: 14px;
+      margin-top: 8px;
+    }
+
+    .btn-white {
+      background: #fff;
+      color: var(--teal);
+      padding: 16px 36px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      white-space: nowrap;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,0.7);
+      padding: 60px;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+    }
+
+    .footer-brand p {
+      font-size: 13px;
+      line-height: 1.8;
+      margin-top: 16px;
+      max-width: 280px;
+    }
+
+    .footer-col h4 {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .footer-col ul { list-style: none; }
+
+    .footer-col li {
+      margin-bottom: 10px;
+      font-size: 13px;
+    }
+
+    .footer-col a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover { color: #fff; }
+
+    .footer-bottom {
+      background: #111;
+      padding: 20px 60px;
+      text-align: center;
+      font-size: 12px;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      color: #fff;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+    }
+
+    .footer-logo span { color: var(--gold); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 0 20px; }
+      .nav-links, .btn-proposal { display: none; }
+      .hamburger { display: flex; }
+      .nav-contact { font-size: 11px; }
+
+      .hero-content { left: 24px; right: 24px; bottom: 60px; }
+
+      .intro { grid-template-columns: 1fr; }
+      .intro-image { height: 300px; }
+      .intro-text { padding: 48px 24px; }
+
+      .events-section { padding: 60px 24px; }
+      .events-grid { grid-template-columns: 1fr; gap: 40px; }
+
+      .clients-section { padding: 50px 24px; }
+      .clients-logos { gap: 24px 40px; }
+
+      .testimonials { padding: 60px 24px; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+
+      .cta-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 48px 24px;
+      }
+
+      footer {
+        grid-template-columns: 1fr 1fr;
+        padding: 48px 24px;
+        gap: 32px;
+      }
+
+      .footer-bottom { padding: 16px 24px; }
+    }
+
+    @media (max-width: 480px) {
+      footer { grid-template-columns: 1fr; }
+      .features-box { padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-logo">
+    <div class="footer-logo">E<span>LITE</span> BANQUETS</div>
+  </div>
+  <div class="nav-contact">
+    <a href="tel:6307995900">(630) 799-5900</a><br>
+    1823 Abriter Ct, Naperville IL 60563
+  </div>
+  <ul class="nav-links">
+    <li><a href="#weddings">Weddings</a></li>
+    <li><a href="#corporate">Corporate Events</a></li>
+    <li><a href="#social">Social Events</a></li>
+    <li><a href="#about">Hotel</a></li>
+    <li><a href="#about">About Us</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+  </ul>
+  <a href="proposal.html" class="btn-proposal">Request Proposal</a>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-close" onclick="toggleMenu()">✕</button>
+  <a href="#weddings" onclick="toggleMenu()">Weddings</a>
+  <a href="#corporate" onclick="toggleMenu()">Corporate Events</a>
+  <a href="#social" onclick="toggleMenu()">Social Events</a>
+  <a href="#about" onclick="toggleMenu()">Hotel</a>
+  <a href="#about" onclick="toggleMenu()">About Us</a>
+  <a href="#gallery" onclick="toggleMenu()">Gallery</a>
+  <a href="proposal.html" class="btn-proposal" style="text-align:center;margin-top:8px;">Request Proposal</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-slides">
+    <div class="hero-slide active">
+      <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=1600&q=80" alt="Elegant banquet hall" />
+    </div>
+    <div class="hero-slide">
+      <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=1600&q=80" alt="Wedding reception" />
+    </div>
+    <div class="hero-slide">
+      <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?w=1600&q=80" alt="Corporate event" />
+    </div>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Naperville's Premier Event Venue</p>
+    <h1 class="hero-title">Where <em>Elegance</em><br>& Splendor Unite</h1>
+    <p class="hero-sub">An ideal venue for weddings, corporate events, and celebrations. Accommodating over 1,000 guests with state-of-the-art AV and captivating LED lighting.</p>
+    <a href="proposal.html" class="hero-cta">Request a Proposal</a>
+  </div>
+  <div class="hero-arrows">
+    <div class="hero-arrow" onclick="changeSlide(-1)">&#8249;</div>
+    <div class="hero-arrow" onclick="changeSlide(1)">&#8250;</div>
+  </div>
+</section>
+
+<!-- EVENT TYPE TABS -->
+<div class="event-tabs">
+  <a href="#weddings" class="event-tab active" id="weddings">Weddings</a>
+  <a href="#corporate" class="event-tab" id="corporate">Corporate Events</a>
+  <a href="#social" class="event-tab" id="social">Social Events</a>
+  <a href="#about" class="event-tab">Hotel</a>
+  <a href="#gallery" class="event-tab">Gallery</a>
+  <a href="#about" class="event-tab">About Us</a>
+</div>
+
+<!-- INTRO -->
+<section class="intro" id="about">
+  <div class="intro-text">
+    <p class="section-label">Embassy Elite Banquets</p>
+    <h2>Your Perfect Event Starts Here</h2>
+    <p>Embassy Elite Banquets is where elegance and splendor unite. An ideal venue for large and small weddings, corporate events and celebrations. This spacious venue is designed to accommodate multiple events at a given time catering to over 1000 guests.</p>
+    <p>Where you can elevate your event with state-of-the-art AV equipment and captivating LED color lighting to create personalized ambiance that matches your vision.</p>
+    <p>We're passionate to help you plan your perfect event — be it a wedding, corporate event, or special celebration. Call us today!</p>
+    <div class="feature-pills">
+      <span class="pill">Hosts 1000 Guests</span>
+      <span class="pill">Ample Parking</span>
+      <span class="pill">Modular Break-Outs</span>
+      <span class="pill">Free WiFi</span>
+      <span class="pill">All Inclusive Packages</span>
+    </div>
+  </div>
+  <div class="intro-image">
+    <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=900&q=80" alt="Banquet hall interior" />
+  </div>
+</section>
+
+<!-- SOCIAL EVENTS + FEATURES -->
+<section class="events-section" id="social">
+  <div class="events-grid">
+    <div class="events-list">
+      <p class="section-label">Social Events</p>
+      <h3>Every Occasion, Perfectly Celebrated</h3>
+      <div class="event-items">
+        <div class="event-item">Quinceañera</div>
+        <div class="event-item">Bar & Bat Mitzvah</div>
+        <div class="event-item">Baby Showers</div>
+        <div class="event-item">Retirement Celebration</div>
+        <div class="event-item">Sweet 16 & Cotillions</div>
+        <div class="event-item">Birthdays & Anniversaries</div>
+        <div class="event-item">Memorials</div>
+      </div>
+    </div>
+    <div class="features-box">
+      <h3>Why Choose Elite Banquets?</h3>
+      <div class="feature-list">
+        <div class="feature-item">
+          <div class="feature-icon">✦</div>
+          <div><strong>Spectacular Hall</strong><br>Opulent interiors with architectural grandeur and LED lighting that sets the perfect mood.</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">🍽</div>
+          <div><strong>Great Food</strong><br>Delicious cuisine crafted to match your vision and delight every guest at your table.</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">🅿</div>
+          <div><strong>Ample Parking</strong><br>Convenient and spacious parking available for all your guests throughout the event.</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">📶</div>
+          <div><strong>Free WiFi</strong><br>High-speed internet throughout the venue — perfect for corporate and hybrid events.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CORPORATE CLIENTS -->
+<section class="clients-section" id="corporate">
+  <h2>Successful Corporate Events Held For</h2>
+  <div class="clients-logos">
+    <span class="client-name">SHURE</span>
+    <span class="client-name">Abbott</span>
+    <span class="client-name">AbbVie</span>
+    <span class="client-name">GEE Group</span>
+    <span class="client-name">Loyola</span>
+    <span class="client-name">Presbyterian Church USA</span>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <h2>What Our Customers Have to Say</h2>
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <p class="testimonial-text">Thanks Embassy Elite Banquets for your delicious food and excellent service, everything surpassed our expectations. My family, relatives and friends had loads of fun. This place is awesome. Will surely come back.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">A</div>
+        <div class="author-name">Happy Guest</div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <p class="testimonial-text">Our conference was a great success. Thanks Embassy Elite Banquets for detailed planning. Delicious food, excellent service, and decor surpassed our expectations. We highly recommend Elite Banquets.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">C</div>
+        <div class="author-name">Corporate Client</div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <p class="testimonial-text">My husband and I celebrated our Wedding anniversary at Embassy Elite Banquets. Definitely one of the nicest. Decor, food, and service was excellent. Will hold more events here and highly recommend this venue.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">M</div>
+        <div class="author-name">Anniversary Couple</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <div>
+    <h2>Ready to Plan Your Perfect Event?</h2>
+    <p>Call us at (630) 799-5900 or submit a proposal request and we'll get back to you promptly.</p>
+  </div>
+  <a href="proposal.html" class="btn-white">Request Proposal</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand footer-col">
+    <div class="footer-logo">E<span>LITE</span> BANQUETS</div>
+    <p>Embassy Elite Banquets — Naperville's premier venue for weddings, corporate events, and social celebrations since our founding.</p>
+  </div>
+  <div class="footer-col">
+    <h4>Events</h4>
+    <ul>
+      <li><a href="#">Weddings</a></li>
+      <li><a href="#">Corporate Events</a></li>
+      <li><a href="#">Quinceañera</a></li>
+      <li><a href="#">Bar & Bat Mitzvah</a></li>
+      <li><a href="#">Sweet 16</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Venue</h4>
+    <ul>
+      <li><a href="#">About Us</a></li>
+      <li><a href="#">Gallery</a></li>
+      <li><a href="#">Hotel</a></li>
+      <li><a href="#">Tools</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Contact</h4>
+    <ul>
+      <li><a href="tel:6307995900">(630) 799-5900</a></li>
+      <li>1823 Abriter Ct</li>
+      <li>Naperville, IL 60563</li>
+      <li><a href="proposal.html">Request Proposal</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="footer-bottom">
+  &copy; 2025 Embassy Elite Banquets, Naperville IL. All rights reserved.
+</div>
+
+<script>
+  // Hero slider
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.hero-slide');
+
+  function showSlide(n) {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = (n + slides.length) % slides.length;
+    slides[currentSlide].classList.add('active');
+  }
+
+  function changeSlide(dir) { showSlide(currentSlide + dir); }
+
+  setInterval(() => changeSlide(1), 5000);
+
+  // Tab active state
+  document.querySelectorAll('.event-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.event-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+    });
+  });
+
+  // Mobile nav
+  function toggleMenu() {
+    document.getElementById('mobileNav').classList.toggle('open');
+  }
+</script>
+</body>
+</html>
