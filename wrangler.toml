@@ -1,0 +1,5 @@
+name = "ssmass"
+compatibility_date = "2026-04-14"
+
+[assets]
+directory = "."
