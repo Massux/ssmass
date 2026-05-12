@@ -1,0 +1,21 @@
+Put image files in this folder using these names (JPG; or change the extension in HTML if you use WebP/PNG).
+
+index.html
+  hero-01-banquet.jpg   — hero carousel slide 1 + intro column (same file unless you add intro-venue.jpg and change HTML)
+  hero-02-wedding.jpg   — hero carousel slide 2
+  hero-03-corporate.jpg — hero carousel slide 3
+
+index (20).html
+  gallery-01.jpg — header logo (class logo-img)
+  gallery-02.jpg — wedding ceremony photo
+  gallery-03.jpg — reception / dining photo
+  gallery-04.jpg — conference setup photo
+  gallery-05.jpg — corporate logo row (Abbott)
+  gallery-06.jpg — corporate logo row (AbbVie)
+  gallery-07.jpg — corporate logo row (partner 3)
+  gallery-08.jpg — corporate logo row (GEE Group)
+  gallery-09.jpg — corporate logo row (partner 5)
+  gallery-10.jpg — form area logo
+  gallery-11.jpg — footer logo (often white/inverted in CSS)
+
+Tiny UI patterns (dropdown arrows, decorative SVG) stay inline in CSS; only photos/logos use this folder.
